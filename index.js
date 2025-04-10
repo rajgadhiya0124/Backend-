@@ -9,7 +9,9 @@ app.get("/",(req,res)=>{
     res.send("hello world")
 })
 
-
+app.get("/login",(req,res)=>{
+    res.send("you are loggined")
+})
 
 app.listen(process.env.PORT,()=>{
     console.log(`Server is running on port ${process.env.PORT}`);    
