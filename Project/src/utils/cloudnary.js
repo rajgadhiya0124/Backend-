@@ -16,11 +16,12 @@ import fs from "fs"
                 resource_type: 'auto'
             })
            
-            //file as benn uploaded sucessfully
+            //file as been uploaded sucessfully
             console.log("file is uploaded on cloudnairy",
             response.url);
+            fs.unlinkSync(localFilePath)
+            console.log(response)
             return response;
-
         } catch (error) {
             fs.unlinkSync(localFilePath) //remove the locally save temprory file  as uploaded operation got failed
             return null;
