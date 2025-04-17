@@ -120,7 +120,7 @@ const loginUser = asyncHandler(async(req,res)=>{
     const {accessToken,refreshToken} =await genrateAccessAndRefreshTokens(user._id)
      
     const loggedInUser = await User.findById(user._id)
-    .select("-passeord -refreshToken")
+    .select("-passeword -refreshToken")
 
     const options = {
         httpOnly:true,
@@ -163,7 +163,7 @@ const logoutUser = asyncHandler(async(req,res)=>{
 
 })
 
-//create a new access token ady=ter access token expairy
+//create a new access token after access token expairy
 const refreshAccessToken = asyncHandler(async(req,res)=>{
    const incomingRefreshToken = req.cookie.refreshToken || req.body.refreshToken
 
